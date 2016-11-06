@@ -28,9 +28,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_path, notice: "#{@user.first_name} #{@user.last_name} was successfully created." }
+        format.html { redirect_to users_path, notice: "#{@user.first_name} #{@user.last_name} was successfully added." }
       else
-        format.html { render :new }
+        format.html { render :new, notice: "Failed to add faculty." }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -41,10 +41,9 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: "#{@user.first_name} #{@user.last_name} was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
+        format.html { redirect_to users_path, notice: "#{@user.first_name} #{@user.last_name} was successfully updated." }
       else
-        format.html { render :edit }
+        format.html { render :edit, notice: "Failed to add faculty." }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
