@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Admin login" do 
   scenario "Admin logs into the system" do
-    visit "/"
+    visit "/login"
     fill_in "ID", with: "Admin"
     fill_in "Password", with: "asdf"
     click_button "Login"
