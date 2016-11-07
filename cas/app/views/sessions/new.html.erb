@@ -1,0 +1,36 @@
+<%= flash.now[:notice] %>
+
+<h1 align='center'>Log in</h1>
+
+<%= form_for(:session, :html => {class: 'form-horizontal', role: 'form'}, url: login_path) do |f| %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control', placeholder: "Enter your email" %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Login", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+
+
+
+Sign Up
+
+<div class="dropdown">
+  <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Select your name
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <% @users.each do |user| %>
+      <li><%= link_to user.full_name, signup_path(:id => user.id) %></li>
+    <% end %>
+  </ul>
+</div>
+
+<%= debug(params) if Rails.env.development? %>

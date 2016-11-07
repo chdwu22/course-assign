@@ -70,10 +70,6 @@ class UsersController < ApplicationController
     end
   end
   
-  def login
-    @users = User.all
-  end
-  
   def signup
   end
 

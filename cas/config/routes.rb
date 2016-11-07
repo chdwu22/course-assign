@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   root to: "pages#home"
   
-  resources :users
+  resources :users, :faculties
   
   get 'admins' => 'admins#index'
   
-  get 'login' => 'users#login'
   get 'signup' => 'users#signup'
+  
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  
 end
