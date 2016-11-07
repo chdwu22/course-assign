@@ -1,0 +1,16 @@
+<h1>Log in</h1>
+
+
+<h1>Faculty Sign Up</h1>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Select your name
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <% @users.each do |user| %>
+      <li><%= link_to user.full_name, signup_path(:id => user.id) %></li>
+    <% end %>
+  </ul>
+</div>
